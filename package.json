@@ -1,0 +1,19 @@
+{
+  "name": "[APPNAME]",
+  "description" : "[APP DESCRIPTION]",
+  "version": "0.0.1",
+  "author": "AUTHOR NAME <NAME@EMAIL.COM>",    
+  "contributors": [
+      
+  ],
+  main: "./forever.js",
+  "dependencies": {
+  	"async": "0.1.15",
+  	"cluster": "0.7.7",
+  	"connect-redis": "1.2.0",
+    "express": "2.5.4",
+    "forever": "0.7.5",
+    "gleak": "0.2.2",
+    "mongoose": "2.4.9",    
+  }
+}
