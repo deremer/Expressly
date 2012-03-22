@@ -24,6 +24,7 @@ This uses Express, Mongoose as the manipulator of MongoDB, and Redis as a sessio
 ### Architecture
 
 The file structure looks like this:
+````
 --app
 ----controllers
 ----models
@@ -34,6 +35,7 @@ The file structure looks like this:
 ----params
 --lib
 --public
+````
 
 **app** - The primary folder for the logic of the app.
 *app.js* - Creates the express app, executes the config functions, and binds the models and routes
