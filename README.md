@@ -19,9 +19,7 @@ This uses Express, Mongoose as the manipulator of MongoDB, and Redis as a sessio
 * Async (https://github.com/caolan/async)
 * Connect-Redis (https://github.com/visionmedia/connect-redis)
 
-## How
-
-### Architecture
+## Architecture
 
 The file structure looks like this:
 
@@ -35,30 +33,51 @@ The file structure looks like this:
 
 >> * **c_xxxx.js** - Create controller files of the included template with "c_" at the beginning of the file name. Controllers are dynamically loaded by the routes.
 
-**models** - Mongoose model definitions that set the data schema and control how data is manipulated
+> **models** - Mongoose model definitions that set the data schema and control how data is manipulated
 
-> * **m_xxxx.js** - Create model files of the included template with "m_" at the beginning of the file name. Models are bound to the app when initialized and passed to routes and controllers for access.
-> * **models.js** - Loads all model files in the 'models' directory. All models become accessible as m.UPPERCASED_MODELNAME in routes and controllers.
+>> * **m_xxxx.js** - Create model files of the included template with "m_" at the beginning of the file name. Models are bound to the app when initialized and passed to routes and controllers for access.
+>> * **models.js** - Loads all model files in the 'models' directory. All models become accessible as m.UPPERCASED_MODELNAME in routes and controllers.
 
-**routes** - Define the HTTP entry to the controllers
+> **routes** - Define the HTTP entry to the controllers
 
-> * **r_xxxx.js** - Create route files of the included template with "r_" at the beginning of the file name. Routes are bound to the app when initialized.
-> * **routes.js** - Loads all route files in the 'models' directory and binds the controller with the corresponding name.
+>> * **r_xxxx.js** - Create route files of the included template with "r_" at the beginning of the file name. Routes are bound to the app when initialized.
+>> * **routes.js** - Loads all route files in the 'models' directory and binds the controller with the corresponding name.
 
-**view** - Views that render the data (I prefer ejs)
+> **view** - Views that render the data (I prefer ejs)
 
 **config** - The primary folder for the logic of the app.  
 
-**environments** - This is where environment specific parameters are set
+> **environments** - This is where environment specific parameters are set
 
-> * **all.js** - Config settings that app to every environment
-> * **development.js/testing.js/production.js** - Config settings that apply to environment the app is being run in
+>> * **all.js** - Config settings that app to every environment
+>> * **development.js/testing.js/production.js** - Config settings that apply to environment the app is being run in
 
-**params** - Contains app-level params
+> **params** - Contains app-level params
 
-> * **errors.js** - Define errors here to allow for convenient and centralized error messages in the app
-> * **params.js** - Central place to maintain global params as well as params for each environment
+>> * **errors.js** - Define errors here to allow for convenient and centralized error messages in the app
+>> * **params.js** - Central place to maintain global params as well as params for each environment
 
 **lib** - A container for other modules
 
 **public** - A container for public files (e.g., favicon, images, css, html, etc)
+
+## Getting Started
+
+#### Set config files
+
+* In params.js, define the parameters that your app needs
+* Most importantly set your mongo and redis URIs
+* For mongo, I find www.mongolab.com to be amazing
+* For red is, I use www.redistogo.com
+
+#### Update environment settings
+
+* You may not need to do anything if you don't have other requirements for Express, but update each environment's settings if needed
+
+#### Create Models, Routes, Controllers
+
+* Define new Mongoose models using the format of the sample found in the "models" folder. Each file must have a name like "m_modelname.js" where it begins with "m_". The models will be automatically binder to the app when it launches. Models can be accessed in the routes and controllers as m.MODELNAME
+* Define new routes using the format provided. Each file must have a name like "r_routename.js" where it begins with "r_". The routes will be automatically binder to the app when it launches. Route names and controller names must be the same after the leading "_r" and "_c". Each route should have a unique controller function that it calls. I like to make the name the camelcased path of the endpoint. For example, GET /user/:id would be getUserId()
+* Define controllers using the format provided. Each file must have a name like "c_controllername.js" where it beings with "c_" and "controllername" must match the name of the associated route.
+
+#### That's it! Now go to the console and say "node ./app/start.js"
