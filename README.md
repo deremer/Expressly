@@ -25,18 +25,6 @@ This uses Express, Mongoose as the manipulator of MongoDB, and Redis as a sessio
 
 The file structure looks like this:
 
-app
-~~~~controllers
-~~~~models
-~~~~routes
-~~~~views
-config
-~~~~environments
-~~~~params
-lib
-public
-
-
 **app** - The primary folder for the logic of the app.
 
 > * **app.js** - Creates the express app, executes the config functions, and binds the models and routes
@@ -45,17 +33,17 @@ public
 
 **controllers** - Files that control what the app should do with a web request
 
-* **c_xxxx.js** - Create controller files of the included template with "c_" at the beginning of the file name. Controllers are dynamically loaded by the routes.
+> * **c_xxxx.js** - Create controller files of the included template with "c_" at the beginning of the file name. Controllers are dynamically loaded by the routes.
 
 **models** - Mongoose model definitions that set the data schema and control how data is manipulated
 
-* **m_xxxx.js** - Create model files of the included template with "m_" at the beginning of the file name. Models are bound to the app when initialized and passed to routes and controllers for access.
-* **models.js** - Loads all model files in the 'models' directory. All models become accessible as m.UPPERCASED_MODELNAME in routes and controllers.
+> * **m_xxxx.js** - Create model files of the included template with "m_" at the beginning of the file name. Models are bound to the app when initialized and passed to routes and controllers for access.
+> * **models.js** - Loads all model files in the 'models' directory. All models become accessible as m.UPPERCASED_MODELNAME in routes and controllers.
 
 **routes** - Define the HTTP entry to the controllers
 
-* **r_xxxx.js** - Create route files of the included template with "r_" at the beginning of the file name. Routes are bound to the app when initialized.
-* **routes.js** - Loads all route files in the 'models' directory and binds the controller with the corresponding name.
+> * **r_xxxx.js** - Create route files of the included template with "r_" at the beginning of the file name. Routes are bound to the app when initialized.
+> * **routes.js** - Loads all route files in the 'models' directory and binds the controller with the corresponding name.
 
 **view** - Views that render the data (I prefer ejs)
 
@@ -63,13 +51,13 @@ public
 
 **environments** - This is where environment specific parameters are set
 
-* **all.js** - Config settings that app to every environment
-* **development.js/testing.js/production.js** - Config settings that apply to environment the app is being run in
+> * **all.js** - Config settings that app to every environment
+> * **development.js/testing.js/production.js** - Config settings that apply to environment the app is being run in
 
 **params** - Contains app-level params
 
-* **errors.js** - Define errors here to allow for convenient and centralized error messages in the app
-* **params.js** - Central place to maintain global params as well as params for each environment
+> * **errors.js** - Define errors here to allow for convenient and centralized error messages in the app
+> * **params.js** - Central place to maintain global params as well as params for each environment
 
 **lib** - A container for other modules
 
