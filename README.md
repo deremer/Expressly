@@ -38,10 +38,13 @@ The file structure looks like this:
 
 
 **app** - The primary folder for the logic of the app.
+
 *app.js* - Creates the express app, executes the config functions, and binds the models and routes
 *cluster.js* - Launches app.js as a cluster
 *start.js* - **Starts the app** by setting cluster.js to run forever
+
 * *controllers* - Files that control what the app should do with a web request
+
 ** *c_xxxx.js* - Create controller files of the included template with "c_" at the beginning of the file name. Controllers are dynamically loaded by the routes.
 * *models* - Mongoose model definitions that set the data schema and control how data is manipulated
 ** *m_xxxx.js* - Create model files of the included template with "m_" at the beginning of the file name. Models are bound to the app when initialized and passed to routes and controllers for access.
