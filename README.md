@@ -66,9 +66,9 @@ The file structure looks like this:
 #### Set config files
 
 * In params.js, define the parameters that your app needs
-* Most importantly set your mongo and redis URIs
+* Most importantly set your mongo (mongoStore) and redis URIs (redisSession)
 * For mongo, I find www.mongolab.com to be amazing
-* For red is, I use www.redistogo.com
+* For redis, I use www.redistogo.com
 
 #### Update environment settings
 
