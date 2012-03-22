@@ -26,22 +26,22 @@ This uses Express, Mongoose as the manipulator of MongoDB, and Redis as a sessio
 The file structure looks like this:
 
 app
-____controllers
-____models
-____routes
-____views
+~~~~controllers
+~~~~models
+~~~~routes
+~~~~views
 config
-____environments
-____params
+~~~~environments
+~~~~params
 lib
 public
 
 
 **app** - The primary folder for the logic of the app.
 
-* **app.js** - Creates the express app, executes the config functions, and binds the models and routes
-* *cluster.js** - Launches app.js as a cluster
-* **start.js** - **Starts the app** by setting cluster.js to run forever
+> * **app.js** - Creates the express app, executes the config functions, and binds the models and routes
+> * **cluster.js** - Launches app.js as a cluster
+> * **start.js** - **Starts the app** by setting cluster.js to run forever
 
 **controllers** - Files that control what the app should do with a web request
 
@@ -52,7 +52,7 @@ public
 * **m_xxxx.js** - Create model files of the included template with "m_" at the beginning of the file name. Models are bound to the app when initialized and passed to routes and controllers for access.
 * **models.js** - Loads all model files in the 'models' directory. All models become accessible as m.UPPERCASED_MODELNAME in routes and controllers.
 
-*routes* - Define the HTTP entry to the controllers
+**routes** - Define the HTTP entry to the controllers
 
 * **r_xxxx.js** - Create route files of the included template with "r_" at the beginning of the file name. Routes are bound to the app when initialized.
 * **routes.js** - Loads all route files in the 'models' directory and binds the controller with the corresponding name.
