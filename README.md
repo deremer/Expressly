@@ -26,15 +26,25 @@ This uses Express, Mongoose as the manipulator of MongoDB, and Redis as a sessio
 The file structure looks like this:
 ````
 --app
+
 ----controllers
+
 ----models
+
 ----routes
+
 ----views
+
 --config
+
 ----environments
+
 ----params
+
 --lib
+
 --public
+
 ````
 
 **app** - The primary folder for the logic of the app.
