@@ -31,9 +31,9 @@ The file structure looks like this:
 > * **cluster.js** - Launches app.js as a cluster
 > * **start.js** - **Starts the app** by setting cluster.js to run forever
 
-**controllers** - Files that control what the app should do with a web request
+> **controllers** - Files that control what the app should do with a web request
 
-> * **c_xxxx.js** - Create controller files of the included template with "c_" at the beginning of the file name. Controllers are dynamically loaded by the routes.
+>> * **c_xxxx.js** - Create controller files of the included template with "c_" at the beginning of the file name. Controllers are dynamically loaded by the routes.
 
 **models** - Mongoose model definitions that set the data schema and control how data is manipulated
 
