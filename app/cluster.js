@@ -9,7 +9,7 @@
 
 // Require modules
 var url = require('url'),
-		cluster = require('cluster');
+		cluster = require('../node_modules/cluster');
 
 // Create app instance
 var app = require('./app.js');

@@ -35,7 +35,7 @@ var bind = function(app) {
 		});
 		console.log('Models Bound: ' + modelNames);
 		return models;
-	} else { throw new Error('No model files present'); }
+	} else { console.log('No model files present'); }
 };
 
 /*********************************************************
