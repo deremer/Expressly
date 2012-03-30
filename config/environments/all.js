@@ -34,22 +34,22 @@ module.exports = function() {
   this.use(express.cookieParser());
   this.use(express.methodOverride());
   
-  // Set Routes
-  this.use(this.router);
+  // Set Routes & View Config
   this.set('publicPath', __dirname + '/../../public');
+  this.set('views', __dirname + '/../../app/views');
+	this.set('view engine', 'ejs');
+	this.use(express.compiler({ src: this.set('publicPath'), enable: ['less'] }));
   this.use(express.static(this.set('publicPath')));
-	this.use(express.favicon(this.set('publicPath') + '/favicon.ico'));
+  this.use(express.favicon(this.set('publicPath') + '/ico/favicon.ico'));
+	this.use(this.router);
 
+	
 	// Set Redis session store
   this.use(express.session({ store: new connect_redis(this.set('redisSessionConfig')), secret: this.set('sessionSecret')}));
   
   // Define Mongo database connection for Mongoose
 	this.set('mongoose', mongoose.connect(this.set('mongodb-uri')));
 
-	  
-	// Set View Config	
-  this.set('view engine', 'ejs');
-  this.set('views', __dirname + '/../../app/views');
    	    
   
 	////////////////////////////////////////////////////////////

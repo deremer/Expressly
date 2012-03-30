@@ -34,8 +34,7 @@ app.configure(require('../config/environments/all.js'));
 /*********************************************************
 * Bind Models & Routes
 *********************************************************/
-var models = require('./models/models.js').bind();
-var routes = require('./routes/routes.js').bind(app, models);
+require('./routes/routes.js').bind(app, require('./models/models.js').bind());
 
 
 /*********************************************************
