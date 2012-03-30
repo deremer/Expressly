@@ -3,6 +3,9 @@
 
 ----
 
+## Twitter Bootstrap
+If you want to use Twitter Bootstrap 2, checkout the "bootstrap" branch. (http://twitter.github.com/bootstrap/)
+
 ## Why
 Setting up a new Express app each time is tedious. It's imperative to have a good flexible structure that you understand very well. But setting it up each time is a hassle. Cloning this repo is a shortcut.
 
