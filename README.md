@@ -7,6 +7,8 @@
 This version is setup to launch an Express project using Twitter Bootstrap 2.
 (http://twitter.github.com/bootstrap/)
 
+You can load the Bootstrap documentation homepage at localhost:3000/bootstrap, but links are not functional.
+
 
 ## Why
 Setting up a new Express app each time is tedious. It's imperative to have a good flexible structure that you understand very well. But setting it up each time is a hassle. Cloning this repo is a shortcut.
