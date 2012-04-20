@@ -35,13 +35,10 @@ var global =
 var dev =
 	{
 			'url' 							: 'http://www.appsite.com'
-		, 'errorOutput' 			: 'json'
 		, 'sessionSecret'			: 'randomString123'
 		// Database connections
 		, 'mongoStore' 				: 'mongodb://localhost/dbname'
 		, 'redisSession' 			: 'redis://user:password@localhost:6379'
-		// Cluster config
-		, 'clusterWorkers'		: 1
 	};
 	
 	
@@ -51,13 +48,10 @@ var dev =
 var testing =
 	{
 			'url' 							: 'http://www.appsite.com'
-		, 'errorOutput' 			: 'json'
 		, 'sessionSecret'			: 'randomString123'
 		// Database connections
 		, 'mongoStore' 				: 'mongodb://localhost/dbname'
 		, 'redisSession' 			: 'redis://user:password@localhost:6379'
-		// Cluster config
-		, 'clusterWorkers'		: 3
 	};
 
 
@@ -67,13 +61,10 @@ var testing =
 var production =
 	{
 			'url' 							: 'http://www.appsite.com'
-		, 'errorOutput' 			: 'json'
 		, 'sessionSecret'			: 'randomString123'
 		// Database connections
 		, 'mongoStore' 				: 'mongodb://localhost/dbname'
 		, 'redisSession' 			: 'redis://user:password@localhost:6379'
-		// Cluster config
-		, 'clusterWorkers'		: 3
 	};
 
 

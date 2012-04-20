@@ -13,10 +13,16 @@ var forever = require('forever');
 var appParams = require('./config/params/params.js');
 
 // Start appserver
-var appserver = new (forever.Monitor)('./app/cluster.js', appParams.global.forever);
+var appserver = new (forever.Monitor)('./app/app.js', appParams.global.forever);
 appserver.start();
+
 
 // Report messages to console
 appserver.on('start', function(err) {
-	console.log(appParams.global.name + ' (' + (process.env.NODE_ENV || 'Development') + ')');
+	console.log('////////////////////////////////////////////////////////////');
+	/* console.log('Started!'); */
 });
+
+appserver.on('error', function(err) {
+	/* console.log('Error!'); */
+})

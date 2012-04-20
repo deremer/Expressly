@@ -48,10 +48,7 @@ module.exports = function() {
 	this.set('env', 'Production');
 	this.set('envParams', appParams.production);
 	this.set('baseURL', appParams.production.url);
-	this.set('errorOutput', appParams.production.errorOutput);
 	this.set('sessionSecret', appParams.production.sessionSecret);
-	this.set('clusterWorkers', appParams.production.clusterWorkers);
-	this.set('clusterDebug', appParams.production.clusterDebug);
 	
 	// Set Express Defaults 
 	this.use(express.logger());

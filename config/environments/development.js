@@ -30,10 +30,7 @@ module.exports = function() {
 	this.set('env', 'Development');
 	this.set('envParams', appParams.dev);
 	this.set('baseURL', appParams.dev.url);
-	this.set('errorOutput', appParams.dev.errorOutput);
 	this.set('sessionSecret', appParams.dev.sessionSecret);
-	this.set('clusterWorkers', appParams.dev.clusterWorkers);
-	this.set('clusterDebug', appParams.dev.clusterDebug);
 	
 	// Set Express Defaults 
 	this.use(express.logger());
