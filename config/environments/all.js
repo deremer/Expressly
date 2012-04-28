@@ -81,7 +81,7 @@ module.exports = function() {
 		var partialViewFiles = fs.readdirSync(app.set('views') + '/partials');
 		var partials = {};
 		if (partialViewFiles && partialViewFiles.length > 1) {
-			// For each file, if it's not this file, bind routes
+			// For each file, if it's not this file, mount routes
 			partialViewFiles.forEach(function(file) {
 				var shortname = file.replace('.ejs','');
 				partials[shortname] = fs.readFileSync(app.set('views') + '/partials/' + file, 'utf8');
@@ -120,7 +120,7 @@ module.exports = function() {
 	
 	
 	////////////////////////////////////////////////////////////
-	// Bind Routes
+	// Mount Routes
 	////////////////////////////////////////////////////////////
 	
 	this.use(this.router);
@@ -134,7 +134,7 @@ module.exports = function() {
 	
 	/**** SUCCESSES ****************************************************************
 	*
-	* For API return, controllers should set the following and call next()
+	* For API style return, controllers should set the following and call next()
 	* 	- req.x.response = output to return to client
 	*		- req.x.status = HTTP status code to return to client
 	*
@@ -145,7 +145,6 @@ module.exports = function() {
 	
 	this.use(function(req, res, next) {
 		if (req.x) {
-			console.log(req.x);
 			if (req.x.json) {
 				res.json(req.x.status || 200, {'status': req.x.status || 200, 'response': req.x.response });
 			} else if (req.x.response) {

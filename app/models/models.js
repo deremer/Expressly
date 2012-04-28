@@ -14,7 +14,7 @@ var fs = require('fs'),
 * Mount models to App
 *********************************************************/
 
-var bind = function(app) {
+var mount = function(app) {
 
 	var self = this;
 
@@ -41,4 +41,4 @@ var bind = function(app) {
 /*********************************************************
 * Module Exports.
 *********************************************************/
-exports.bind = bind;
+exports.mount = mount;

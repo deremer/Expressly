@@ -50,9 +50,12 @@ var errorHandler = function(err) {
 	// But filter output to template response
 	if (typeof err == 'object') {
 		if (err.status) { errObj.status = err.status } else { errObj.status = 404; }
-		if (err.error) { errObj.error = err.error } else { errObj.error = 'unspecified error'; }
+		if (err.error) { errObj.error = err.error; } 
+		else if (err.errors) { errObj.error = err.errors; }
+		else if (err.err) { errObj.error = err.err; }
+		else { errObj.error = 'unspecified error'; }
 		if (err.message) { errObj.message = err.message; }
-		if (err.code) { errObj.code = code; }
+		if (err.code && _u.has(errorCodes, err.code)) { errObj.code = err.code; }
 	}
 	
 	// If error format is unhandled just set the error object as the error

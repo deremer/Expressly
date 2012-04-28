@@ -21,7 +21,6 @@ This uses Express, Mongoose as the manipulator of MongoDB, and Redis as a sessio
 
 * Express	(http://expressjs.com/)
 * Mongoose (http://mongoosejs.com/)
-* Cluster (https://github.com/LearnBoost/cluster)
 * Forever (https://github.com/nodejitsu/forever)
 * Async (https://github.com/caolan/async)
 * Connect-Redis (https://github.com/visionmedia/connect-redis)
@@ -32,7 +31,7 @@ The file structure looks like this:
 
 **app** - The primary folder for the logic of the app.
 
-> * **app.js** - Creates the express app, executes the config functions, and binds the models and routes
+> * **app.js** - Creates the express app, executes the config functions, and mounts the models and routes
 > * **cluster.js** - Launches app.js as a cluster
 > * **start.js** - **Starts the app** by setting cluster.js to run forever
 
@@ -48,7 +47,7 @@ The file structure looks like this:
 > **routes** - Define the HTTP entry to the controllers
 
 >> * **r_xxxx.js** - Create route files of the included template with "r_" at the beginning of the file name. Routes are bound to the app when initialized.
->> * **routes.js** - Loads all route files in the 'models' directory and binds the controller with the corresponding name.
+>> * **routes.js** - Loads all route files in the 'models' directory and mounts the controller with the corresponding name.
 
 > **view** - Views that render the data (I prefer ejs)
 
@@ -83,8 +82,8 @@ The file structure looks like this:
 
 #### Create Models, Routes, Controllers
 
-* Define new Mongoose models using the format of the sample found in the "models" folder. Each file must have a name like "m_modelname.js" where it begins with "m_". The models will be automatically binder to the app when it launches. Models can be accessed in the routes and controllers as m.MODELNAME
-* Define new routes using the format provided. Each file must have a name like "r_routename.js" where it begins with "r_". The routes will be automatically binder to the app when it launches. Route names and controller names must be the same after the leading "_r" and "_c". Each route should have a unique controller function that it calls. I like to make the name the camelcased path of the endpoint. For example, GET /user/:id would be getUserId()
+* Define new Mongoose models using the format of the sample found in the "models" folder. Each file must have a name like "m_modelname.js" where it begins with "m_". The models will be automatically mounted to the app when it launches. Models can be accessed in the routes and controllers as m.MODELNAME
+* Define new routes using the format provided. Each file must have a name like "r_routename.js" where it begins with "r_". The routes will be automatically mounted to the app when it launches. Route names and controller names must be the same after the leading "_r" and "_c". Each route should have a unique controller function that it calls. I like to make the name the camelcased path of the endpoint. For example, GET /user/:id would be getUserId()
 * Define controllers using the format provided. Each file must have a name like "c_controllername.js" where it beings with "c_" and "controllername" must match the name of the associated route.
 
 #### That's it! Now go to the console and say "node ./app/start.js"

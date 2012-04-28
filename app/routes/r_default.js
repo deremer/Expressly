@@ -13,7 +13,7 @@ var less = require('less'),
 *		Make endpoints available
 *		Define route access via middleware
 *********************************************************/
-var bind = function (app, controller) {
+var mount = function (app, controller) {
 
 	// Default route, render HTML
 	app.get('/', controller.index);
@@ -70,4 +70,4 @@ var bind = function (app, controller) {
 /*********************************************************
 * Module Exports.
 *********************************************************/
-exports.bind = bind;
+exports.mount = mount;

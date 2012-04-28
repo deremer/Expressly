@@ -9,7 +9,7 @@
 /*********************************************************
 * Define Controller for App Route
 *********************************************************/
-var bind = function (app, m) {
+var mount = function (app, m) {
 
 
 	this.index = function(req, res, next) {
@@ -75,4 +75,4 @@ var bind = function (app, m) {
 /*********************************************************
 * Module Exports.
 *********************************************************/
-exports.bind = bind;
+exports.mount = mount;

@@ -11,7 +11,7 @@ var fs = require('fs'),
 /*********************************************************
 * Mount routes to App
 *********************************************************/
-var bind = function(app, m) {
+var mount = function(app, m) {
 
 	var routes = [];
 	
@@ -20,7 +20,7 @@ var bind = function(app, m) {
 	
 	if (files && files.length > 1) {
 				
-		// For each file, if it's not this file, bind routes
+		// For each file, if it's not this file, mount routes
 		files.forEach(function(file) {
 			if (file != 'routes.js' && file != '.DS_Store') {
 				var shortname = file.replace('r_','').replace('.js','');
@@ -37,11 +37,11 @@ var bind = function(app, m) {
 				
 					// Get controller
 					var controller = require(controllerPath);
-					controller.bind(app, m);
+					controller.mount(app, m);
 					
-					// Bind route with controller
+					// mount route with controller
 					var route = require('./' + file); 
-					route.bind(app, controller);
+					route.mount(app, controller);
 					
 				} else { throw new Error('Could not get controller: ' + controllerFn); }
 			}
@@ -53,4 +53,4 @@ var bind = function(app, m) {
 /*********************************************************
 * Module Exports.
 *********************************************************/
-exports.bind = bind;
+exports.mount = mount;
